@@ -1,0 +1,36 @@
+#📌 Take 2 image crop some part of both image and swap it.
+
+#import cv2
+import cv2
+
+#read images to edit
+dp=cv2.imread("dp_8.jpg")
+aadhar=cv2.imread("dp_9.jpg")
+photo11=aadhar
+photo22=dp
+
+#showing both original images #done till this step now moving frwrd
+cv2.imshow("original1",aadhar)
+cv2.waitKey(0)
+cv2.imshow("original2",dp)
+cv2.waitKey(0)
+
+#using the pixels cordinates via arrays concepts to alter image 
+aadhar[200:645,5:340]=dp[130:575, 340:675]
+cv2.imshow("cropped3", aadhar)
+cv2.waitKey()
+cv2.destroyAllWindows()
+cv2.imwrite("newphoto22.jpg",aadhar)
+
+#read both images again to edit the 2nd pic
+photo1=cv2.imread("dp_8.jpg")
+photo2=cv2.imread("dp_9.jpg")
+pic1=photo1
+pic2=photo2
+
+##using the pixels cordinates via arrays concepts to alter image 
+pic1[120:400, 370:640]=pic2[270:550,30:300]
+cv2.imshow("org4", pic1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
