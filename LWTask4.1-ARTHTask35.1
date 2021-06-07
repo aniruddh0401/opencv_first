@@ -1,0 +1,19 @@
+#📌 Create image by yourself Using Python Code 
+
+import cv2
+import numpy as np
+img=np.zeros((400,400))
+img[10::20,0::20]=1
+img[0::20,10::20]=1
+center_coordinates = (160, 40)
+center_coordinates1=(150,30)
+radius = 20  
+color = (255, 255, 255)
+color1=(0,0,0)
+thickness = 40
+img=cv2.circle(img, center_coordinates, radius, color, thickness)
+#img=cv2.circle(img, center_coordinates1, radius, color1, thickness)
+cv2.imshow("pic",img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
