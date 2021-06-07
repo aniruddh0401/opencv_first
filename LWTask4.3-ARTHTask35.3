@@ -1,0 +1,48 @@
+#📌 Take 2 image and combine it to form single image. For example collage
+
+import cv2
+import numpy as np
+
+#reading image to edit
+img=cv2.imread("dp_4.jpg")
+
+#cropping and flipping image horizontally
+cimg=img[250:700,150:500]
+fimg = cv2.flip(cimg, 1)
+
+#showing both the cropped and flipped images 
+cv2.imshow("Heya1", cimg)
+cv2.waitKey(0)
+cv2.imshow("Heya2", fimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#using hstack concept of numpy array to stack the arrays column wise
+mimg=np.hstack((cimg,fimg))
+cv2.imshow("Final", mimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#flipping the image vertically both sides
+f2img=cv2.flip(cimg, -1)
+f3img=cv2.flip(cimg, 0)
+
+#using hstack concept of numpy array to stack the arrays column wise
+mimg=np.hstack((cimg,fimg))
+inmimg=np.hstack((f3img,f2img))
+
+#using vstack concept of numpy array to stack the arrays row wise
+mmimg=np.vstack((mimg,inmimg))
+
+#showing pics
+cv2.imshow("Heya2", mimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.imshow("Heya3", inmimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.imshow("Heya4", mmimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+cv2.imwrite("Merged2.jpg",mmimg)
+
